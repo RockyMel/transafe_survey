@@ -1,0 +1,36 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "MyController",
+            "Navigation"
+        ],
+        "models": [
+            "FSData",
+            "pieModel"
+        ],
+        "name": "MyApp",
+        "stores": [
+            "FoursquareStore",
+            "MyArrayStore",
+            "FeelingsStore"
+        ],
+        "views": [
+            "LogoPanel",
+            "ListViewPanel",
+            "SignInUpPanel",
+            "EmometerPanel",
+            "ComfortPanel",
+            "MapViewPanel",
+            "RibbonMenuPanel",
+            "ListView",
+            "StatisticsTabPanel"
+        ]
+    },
+    "designerId": "application"
+}

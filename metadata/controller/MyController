@@ -1,0 +1,400 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyController"
+    },
+    "designerId": "d69e40f9-c3d0-4ffc-a460-dde81301f091",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onListItemTap",
+                "implHandler": [
+                    "console.log(record.get('name'));",
+                    "Ext.Viewport.setActiveItem('EmometerPanel',{",
+                    "    type: \"slide\",",
+                    "    direction: \"left\"",
+                    "});",
+                    "console.log(this.getVenueLblSurvey().setHtml('You are at ' + record.get('name')));",
+                    "localStorage.setItem('location',record.get('name'));"
+                ],
+                "name": "itemtap"
+            },
+            "designerId": "f5982445-7988-443b-9553-c55d5695cd1e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "venueLblSurvey",
+                "selector": "label#venueLblSurvey"
+            },
+            "designerId": "c387078b-3aea-4624-a6bb-7dc267ed9182"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "greetingLabel",
+                "selector": "label#greetingLabel"
+            },
+            "designerId": "b4041131-3822-4867-a8e3-8eb195173bbb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signInBtn",
+                "selector": "button#signInBtn"
+            },
+            "designerId": "c7eaa12c-9c03-4f7c-968e-301e7abc6650"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signUpBtn",
+                "selector": "button#signUpBtn"
+            },
+            "designerId": "6e04a067-edfa-470d-91cb-dc7b2faa611e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOutBtn",
+                "selector": "button#signOutBtn"
+            },
+            "designerId": "660571fe-9f07-4fef-84e9-1db83e99921d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "logoPanel",
+                "selector": "panel#logoPanel"
+            },
+            "designerId": "692deab6-047f-42f2-b044-3695b12ff5b0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "statLocationLabel",
+                "selector": "label#statLocationLabel"
+            },
+            "designerId": "e9213d46-dcc6-46a9-bd37-6a07b7f0678a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#StatisticsTabPanel",
+                "designer|targetType": "StatisticsTabPanel",
+                "fn": "onStatisticsTabPanelActivate",
+                "implHandler": [
+                    "this.getStatLocationLabel().setHtml(localStorage.getItem('location'));",
+                    "this.getVotedLabel().setHtml('For the location below, you have recently voted ' + recentVoteString);",
+                    "// Getting statistics",
+                    "",
+                    "$.ajax({",
+                    "    type: \"GET\",",
+                    "    url: \"http://115.146.86.216:8080/TransNet/rest/getjson/SumTypeOfFeelingAnonymous?location=\"+localStorage.getItem('location'),",
+                    "    dataType: \"jsonp\",",
+                    "    success: function (xml) {",
+                    "        //             alert(xml.Data[0].City);",
+                    "        //             result = xml.Code;",
+                    "        //             document.myform.result1.value = result;",
+                    "       // alert(xml.Sad[0]);",
+                    "        console.log(xml);",
+                    "",
+                    "        // Happy - Sad",
+                    "        var store = Ext.getStore(\"FeelingsStore\");",
+                    "        store.removeAll(false);",
+                    "        store.sync();",
+                    "        var data = [",
+                    "",
+                    "",
+                    "            {",
+                    "                \"HappySadText\": \"1 Happy: \" + xml.Happy[1],",
+                    "                \"HappySadValue\": xml.Happy[1]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"2 Happy: \" + xml.Happy[2],",
+                    "                \"HappySadValue\": xml.Happy[2]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"3 Happy: \" + xml.Happy[3],",
+                    "                \"HappySadValue\": xml.Happy[3]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"4 Happy: \" + xml.Happy[4],",
+                    "                \"HappySadValue\": xml.Happy[4]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"5 Happy\" + xml.Happy[5],",
+                    "                \"HappySadValue\": xml.Happy[5]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"Neutral: \" + xml.Happy[0],",
+                    "                \"HappySadValue\": xml.Happy[0]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"1 Sad: \" + xml.Sad[1],",
+                    "                \"HappySadValue\": xml.Sad[1]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"2 Sad: \" + xml.Sad[2],",
+                    "                \"HappySadValue\": xml.Sad[2]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"3 Sad: \" + xml.Sad[3],",
+                    "                \"HappySadValue\": xml.Sad[3]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"4 Sad: \" + xml.Sad[4],",
+                    "                \"HappySadValue\": xml.Sad[4]",
+                    "            },",
+                    "            {",
+                    "                \"HappySadText\": \"5 Sad: \" + xml.Sad[5],",
+                    "                \"HappySadValue\": xml.Sad[5]",
+                    "            }",
+                    "        ];",
+                    "        store.add(data);",
+                    "        store.sync();",
+                    "",
+                    "            // Bored - Excited",
+                    "        data = [",
+                    "            {",
+                    "                \"BoredExcitedText\": \"1 Excited : \" + xml.Excited [1],",
+                    "                \"BoredExcitedValue\": xml.Excited [1]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"2 Excited : \" + xml.Excited [2],",
+                    "                \"BoredExcitedValue\": xml.Excited [2]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"3 Excited : \" + xml.Excited [3],",
+                    "                \"BoredExcitedValue\": xml.Excited [3]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"4 Excited : \" + xml.Excited [4],",
+                    "                \"BoredExcitedValue\": xml.Excited [4]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"5 Excited \" + xml.Excited [5],",
+                    "                \"BoredExcitedValue\": xml.Excited [5]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"Neutral: \" + xml.Excited[0],",
+                    "                \"BoredExcitedValue\": xml.Excited[0]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"1 Bored: \" + xml.Bored[1],",
+                    "                \"BoredExcitedValue\": xml.Bored[1]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"2 Bored: \" + xml.Bored[2],",
+                    "                \"BoredExcitedValue\": xml.Bored[2]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"3 Bored: \" + xml.Bored[3],",
+                    "                \"BoredExcitedValue\": xml.Bored[3]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"4 Bored: \" + xml.Bored[4],",
+                    "                \"BoredExcitedValue\": xml.Bored[4]",
+                    "            },",
+                    "            {",
+                    "                \"BoredExcitedText\": \"5 Bored: \" + xml.Bored[5],",
+                    "                \"BoredExcitedValue\": xml.Bored[5]",
+                    "            }",
+                    "        ];",
+                    "        store.add(data);",
+                    "        store.sync();",
+                    "",
+                    "",
+                    "",
+                    "        // Scared - Safe",
+                    "",
+                    "        data = [",
+                    "",
+                    "            {",
+                    "                \"ScaredSafeText\": \"1 Safe: \" + xml.Safe[1],",
+                    "                \"ScaredSafeValue\": xml.Safe[1]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"2 Safe: \" + xml.Safe[2],",
+                    "                \"ScaredSafeValue\": xml.Safe[2]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"3 Safe: \" + xml.Safe[3],",
+                    "                \"ScaredSafeValue\": xml.Safe[3]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"4 Safe: \" + xml.Safe[4],",
+                    "                \"ScaredSafeValue\": xml.Safe[4]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"5 Safe\" + xml.Safe[5],",
+                    "                \"ScaredSafeValue\": xml.Safe[5]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"Neutral: \" + xml.Safe[0],",
+                    "                \"ScaredSafeValue\": xml.Safe[0]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"1 Scared: \" + xml.Scared[1],",
+                    "                \"ScaredSafeValue\": xml.Scared[1]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"2 Scared: \" + xml.Scared[2],",
+                    "                \"ScaredSafeValue\": xml.Scared[2]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"3 Scared: \" + xml.Scared[3],",
+                    "                \"ScaredSafeValue\": xml.Scared[3]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"4 Scared: \" + xml.Scared[4],",
+                    "                \"ScaredSafeValue\": xml.Scared[4]",
+                    "            },",
+                    "            {",
+                    "                \"ScaredSafeText\": \"5 Scared: \" + xml.Scared[5],",
+                    "                \"ScaredSafeValue\": xml.Scared[5]",
+                    "            }",
+                    "        ];",
+                    "        store.add(data);",
+                    "        store.sync();",
+                    "",
+                    "         // Angry - Peaceful",
+                    "",
+                    "        data = [",
+                    "",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"1 Peaceful: \" + xml.Peaceful[1],",
+                    "                \"AngryPeacefulValue\": xml.Peaceful[1]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"2 Peaceful: \" + xml.Peaceful[2],",
+                    "                \"AngryPeacefulValue\": xml.Peaceful[2]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"3 Peaceful: \" + xml.Peaceful[3],",
+                    "                \"AngryPeacefulValue\": xml.Peaceful[3]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"4 Peaceful: \" + xml.Peaceful[4],",
+                    "                \"AngryPeacefulValue\": xml.Peaceful[4]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"5 Peaceful\" + xml.Peaceful[5],",
+                    "                \"AngryPeacefulValue\": xml.Peaceful[5]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"Neutral: \" + xml.Peaceful[0],",
+                    "                \"AngryPeacefulValue\": xml.Peaceful[0]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"1 Angry: \" + xml.Angry[1],",
+                    "                \"AngryPeacefulValue\": xml.Angry[1]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"2 Angry: \" + xml.Angry[2],",
+                    "                \"AngryPeacefulValue\": xml.Angry[2]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"3 Angry: \" + xml.Angry[3],",
+                    "                \"AngryPeacefulValue\": xml.Angry[3]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"4 Angry: \" + xml.Angry[4],",
+                    "                \"AngryPeacefulValue\": xml.Angry[4]",
+                    "            },",
+                    "            {",
+                    "                \"AngryPeacefulText\": \"5 Angry: \" + xml.Angry[5],",
+                    "                \"AngryPeacefulValue\": xml.Angry[5]",
+                    "            }",
+                    "        ];",
+                    "        store.add(data);",
+                    "        store.sync();",
+                    "",
+                    "    }",
+                    "});"
+                ],
+                "name": "activate"
+            },
+            "designerId": "63803143-718e-40a7-9945-464712ed992d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "StatisticsTabPanel",
+                "selector": "panel#StatisticsTabPanel"
+            },
+            "designerId": "80dc684f-75d8-4e42-a693-19c9b07f1af5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "votedLabel",
+                "selector": "label#voted"
+            },
+            "designerId": "32dd9fc0-3a13-4e94-b987-347f9e23399b"
+        }
+    ]
+}

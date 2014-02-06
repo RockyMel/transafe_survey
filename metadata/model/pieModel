@@ -1,0 +1,111 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "pieModel"
+    },
+    "designerId": "e8ce4b69-e0da-4c14-87af-f23ee539faad",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultValue": null,
+                "name": "Sad"
+            },
+            "designerId": "cbb61c4f-9e30-403d-8660-daf47a185c15"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Happy"
+            },
+            "designerId": "f2eb97f6-221f-46df-9055-1d60ede155aa"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Angry"
+            },
+            "designerId": "69a4f063-c6fd-4f6e-aed7-43e62f152f77"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Peaceful"
+            },
+            "designerId": "997ff474-3e32-4c3a-944b-0fc1910cda9d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Bored"
+            },
+            "designerId": "daa14191-3046-49c0-a637-d773a58c8ca2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Excited"
+            },
+            "designerId": "696a5bc7-8005-4d54-bea6-8edd178a3b01"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Safe"
+            },
+            "designerId": "97f5c6e7-4ea8-4bbf-8540-fbcd6a5883f2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Scared"
+            },
+            "designerId": "e557eeaa-847c-4820-b6bc-f03a3933a2e9"
+        }
+    ]
+}
