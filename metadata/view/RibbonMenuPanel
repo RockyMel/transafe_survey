@@ -1,0 +1,277 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "start",
+        "designer|userAlias": "RibbonMenuPanel",
+        "designer|userClassName": "RibbonMenuPanel",
+        "height": 97,
+        "layout": "hbox",
+        "style": "background-color:#006db9"
+    },
+    "designerId": "2278e154-e735-4a69-b9ba-4ef807082f2f",
+    "cn": [
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "html": "Welcome",
+                "id": "welcomeRibbonLabel",
+                "margin": "0 0 0 10",
+                "style": "color: white"
+            },
+            "designerId": "69c93840-7eee-47dc-890b-8fae7a65b289"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 75,
+                "minHeight": "",
+                "minWidth": 75,
+                "src": "transafe_logo.png",
+                "style": "background-color:white",
+                "width": 75
+            },
+            "designerId": "8ceede03-a29a-4302-9da1-c53bb2948896"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "right",
+                "layout|flex": 1
+            },
+            "designerId": "9c64dee6-10c9-4bf4-9c95-b27dd9357dd5",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action",
+                        "height": 36,
+                        "icon": "icon_login.png",
+                        "iconAlign": "center",
+                        "id": "signInUpBtn",
+                        "text": null,
+                        "ui": "action",
+                        "width": 75
+                    },
+                    "designerId": "567885b2-168b-42ed-bf90-d00f613bb646",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "localStorage.setItem('prevView', Ext.Viewport.getActiveItem().getId());",
+                                    "Ext.Viewport.setActiveItem('SignInUpPanel',{",
+                                    "type: \"slide\",",
+                                    "direction: \"left\"",
+                                    "});"
+                                ]
+                            },
+                            "designerId": "1be45ee5-5e59-431b-9519-26b5014740b2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action",
+                        "height": 36,
+                        "iconAlign": "center",
+                        "iconCls": "delete",
+                        "id": "signOutBtn",
+                        "text": null,
+                        "ui": "action",
+                        "width": 75
+                    },
+                    "designerId": "3d8b405f-aca9-430b-8a4c-759c07c7fadb",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "localStorage.setItem('ifLogged', '');",
+                                    "localStorage.setItem('username','');",
+                                    "console.log('signing out');",
+                                    "Ext.Viewport.setActiveItem('list',{",
+                                    "                            type: \"slide\",",
+                                    "                            direction: \"left\"",
+                                    "                        });",
+                                    "window.location.reload();"
+                                ]
+                            },
+                            "designerId": "b9cfaf12-31ef-4696-a0cb-cb0963f540fd"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "action",
+                "docked": "right",
+                "height": 75,
+                "icon": "icon_mapview.png",
+                "id": "mapViewBtn",
+                "layout|flex": 1,
+                "text": null,
+                "ui": "action",
+                "width": 75
+            },
+            "designerId": "9039d01a-9425-42eb-888e-85f7140eaf9f",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "button",
+                            "e"
+                        ],
+                        "fn": "handler",
+                        "implHandler": [
+                            "                            Ext.Viewport.setActiveItem('MapViewPanel',{",
+                            "                                type: \"slide\",",
+                            "                                direction: \"left\"",
+                            "                            });"
+                        ]
+                    },
+                    "designerId": "6c093fd5-96d3-43ac-83b9-f7ed3401fb3e"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "action",
+                "docked": "right",
+                "height": 75,
+                "icon": "icon_listview_new.png",
+                "id": "listViewBtn",
+                "layout|flex": 1,
+                "maxHeight": "",
+                "text": null,
+                "ui": "action",
+                "width": 75
+            },
+            "designerId": "0967cc63-16dd-4f40-9c53-f2c6766ebab8",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "button",
+                            "e"
+                        ],
+                        "fn": "handler",
+                        "implHandler": [
+                            "Ext.Viewport.setActiveItem('ListView',{",
+                            "    type: \"slide\",",
+                            "    direction: \"left\"",
+                            "});"
+                        ]
+                    },
+                    "designerId": "81f3e6d0-1801-4de5-a6b9-2fb87e6bbb0f"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "updateWhenActivated",
+                "implHandler": [
+                    "console.log('in ribbon');",
+                    "// if anonimous",
+                    "if(localStorage.getItem('ifLogged') == 'Invalid User' | localStorage.getItem('ifLogged') === '' | localStorage.getItem('ifLogged') == 'null' | localStorage.getItem('ifLogged') === null){",
+                    "    console.log('anomimous');",
+                    "    Ext.getCmp('signInUpBtn').setHeight(75);",
+                    "    Ext.getCmp('signOutBtn').hide();",
+                    "    Ext.getCmp('welcomeRibbonLabel').hide();",
+                    "}",
+                    "else{",
+                    "    console.log('registered');",
+                    "    console.log('username is: '+ localStorage.getItem('username'));",
+                    "    Ext.getCmp('signInUpBtn').setHeight(37.5);",
+                    "    Ext.getCmp('signOutBtn').show();",
+                    "    Ext.getCmp('welcomeRibbonLabel').show();",
+                    "    Ext.getCmp('welcomeRibbonLabel').setHtml('Welcome, ' + localStorage.getItem('username'));",
+                    "}"
+                ]
+            },
+            "designerId": "4add6ab3-31d6-442b-9be2-41cb65aed736"
+        }
+    ]
+}

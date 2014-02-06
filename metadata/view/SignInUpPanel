@@ -1,0 +1,426 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "SignInUpPanel",
+        "designer|userClassName": "SignInUpPanel",
+        "id": "SignInUpPanel",
+        "scrollable": true
+    },
+    "designerId": "f6e2a4f7-5d9f-4a0c-a211-24af5e464a8c",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "signRibbon"
+            },
+            "designerId": "d1a033bf-6025-4821-9a29-1020e408579a",
+            "masterInstanceId": "2278e154-e735-4a69-b9ba-4ef807082f2f"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Please, authorise"
+            },
+            "designerId": "07823d3c-e0ae-40d9-a246-d82972e7e9b3",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "id": "signInUsernameField",
+                        "label": "Login",
+                        "margin": null,
+                        "padding": 2,
+                        "style": "'border-color: blue; border-style: solid;',"
+                    },
+                    "designerId": "03a7d03a-357d-4d8a-9924-164237b8053e"
+                },
+                {
+                    "type": "Ext.field.Password",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "id": "signInPasswordField",
+                        "label": "Password",
+                        "labelAlign": null,
+                        "style": "'border-color: blue; border-style: solid;',"
+                    },
+                    "designerId": "3571326f-3454-4312-98e6-8603183a5661"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action-round",
+                        "docked": "bottom",
+                        "text": "Submit",
+                        "ui": "action-round"
+                    },
+                    "designerId": "695aaba4-68c1-41d9-ba00-d4945d942138",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var username = Ext.getCmp('signInUsernameField').getValue();",
+                                    "var pass = Ext.getCmp('signInPasswordField').getValue();",
+                                    "console.log('Username: ' + username );",
+                                    "console.log('Password: ' + pass );",
+                                    "",
+                                    "Ext.data.JsonP.request({",
+                                    "",
+                                    "     url: 'http://115.146.86.216:8080/TransNet/services/SurveyBO/Login',",
+                                    "   // method: 'POST',",
+                                    "   // dataType: 'json',",
+                                    "     params: {",
+                                    "         username: username,",
+                                    "         pass: pass,",
+                                    "         format: 'json',",
+                                    "         response: 'application/jsonp'",
+                                    "             },",
+                                    "      callbackKey: 'callback',",
+                                    "                    success: function (response) {",
+                                    "                        //alert('Working!');",
+                                    "                        console.log(response);",
+                                    "                        if(response['return'] === undefined || response['return'] == \"Invalid User\"){",
+                                    "                            return;",
+                                    "                            Ext.Msg.alert('Error!', 'Invalid username or password');",
+                                    "                        }",
+                                    "                        if(response['return'] != 'Invalid User' || response['return'] !== undefined || response.responseBytes !== null){",
+                                    "                            console.log(response['return']);",
+                                    "                            localStorage.setItem('ifLogged', response['return']);",
+                                    "                            localStorage.setItem('username', username);",
+                                    "                            console.log(localStorage.getItem('ifLogged'));",
+                                    "                        }",
+                                    "                        console.log('prevView is:' + localStorage.getItem('prevView'));",
+                                    "                         Ext.Viewport.setActiveItem(localStorage.getItem('prevView'),{",
+                                    "                            type: \"slide\",",
+                                    "                            direction: \"left\"",
+                                    "                        });",
+                                    "                    },",
+                                    "                    failure: function (response) {",
+                                    "                        alert('Not working!');",
+                                    "                        console.log(response);",
+                                    "                    },",
+                                    "     callback: function(successful, data){",
+                                    "     alert(data);",
+                                    " }",
+                                    "               });",
+                                    ""
+                                ]
+                            },
+                            "designerId": "93c4fcad-d4c8-4684-b1a3-52465d16fcf7"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": "Or sign up"
+            },
+            "designerId": "cae21586-f31c-4618-85ea-8a4bdd98bfd5"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Choose login and password"
+            },
+            "designerId": "9e773684-bf4c-443c-a656-30b299a7c2c9",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "id": "signUpUsernameField",
+                        "label": "Login",
+                        "labelWidth": "35%",
+                        "padding": null,
+                        "style": "'border-color: blue; border-style: solid;',"
+                    },
+                    "designerId": "5103843e-0e88-4a40-ac41-9355c59ea004"
+                },
+                {
+                    "type": "Ext.field.Password",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "id": "signUpPasswordField",
+                        "label": "Password",
+                        "labelAlign": null,
+                        "labelWidth": "35%",
+                        "padding": null,
+                        "style": "'border-color: blue; border-style: solid;',"
+                    },
+                    "designerId": "02764576-eedd-4294-a781-a857f41f1ae5"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Tell us about yourself"
+            },
+            "designerId": "1dddcd43-3b7b-438d-b708-1a5ed5c0f0c5",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "id": "emailField",
+                        "label": "Email",
+                        "padding": "",
+                        "style": "'border-color: blue; border-style: solid;'"
+                    },
+                    "designerId": "90619f23-5d0c-4f32-9722-0c81c1d8f61d"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "designer|uiInterfaceName": "number",
+                        "id": "ageField",
+                        "label": "Age",
+                        "padding": "",
+                        "style": "'border-color: blue; border-style: solid;',",
+                        "ui": "number"
+                    },
+                    "designerId": "fdfbb4c8-14ec-4af4-aa99-69b62976fdf6"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1,
+                        "id": "occupationField",
+                        "label": "Role",
+                        "padding": null,
+                        "style": "'border-color: blue; border-style: solid;',"
+                    },
+                    "designerId": "034ad010-dcee-4531-a3ef-9a0192a2dfe4"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": 1
+                    },
+                    "designerId": "347a6554-1653-4a38-b9a1-84f8bd20e063",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "border": 1,
+                                "docked": "left",
+                                "label": "Male",
+                                "labelAlign": null,
+                                "labelWidth": "60%",
+                                "minWidth": "50%",
+                                "name": "gender",
+                                "style": "'border-color: blue; border-style: solid;',",
+                                "value": "male"
+                            },
+                            "designerId": "ff54a3ef-f434-4445-aabf-233d2de7baaf"
+                        },
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "border": 1,
+                                "centered": false,
+                                "docked": "right",
+                                "label": "Female",
+                                "labelAlign": "right",
+                                "labelWidth": "50%",
+                                "labelWrap": true,
+                                "minWidth": "50%",
+                                "name": "gender",
+                                "style": "'border-color: blue; border-style: solid;',",
+                                "value": "female"
+                            },
+                            "designerId": "e2491954-3d76-4bf6-a27d-cafb28e83e52"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action-round",
+                        "docked": "bottom",
+                        "text": "Submit",
+                        "ui": "action-round"
+                    },
+                    "designerId": "8114f3a3-ec74-491d-ab9c-5ff1d63c1f31",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var login = Ext.getCmp('signUpUsernameField').getValue();",
+                                    "var pass = Ext.getCmp('signUpPasswordField').getValue();",
+                                    "var email = Ext.getCmp('emailField').getValue();",
+                                    "var gender = Ext.ComponentQuery.query('radiofield[name=gender]')[0].getGroupValue();",
+                                    "var age = Ext.getCmp('ageField').getValue();",
+                                    "var occupation = Ext.getCmp('occupationField').getValue();",
+                                    "console.log('Username: ' + login);",
+                                    "console.log('Password: ' + pass);",
+                                    "console.log('email: ' + email);",
+                                    "console.log('age: ' + age);",
+                                    "console.log('occupation: ' + occupation);",
+                                    "console.log('gender: ' + gender);",
+                                    "",
+                                    "Ext.data.JsonP.request({",
+                                    "",
+                                    "     url: 'http://115.146.86.216:8080/TransNet/services/SurveyBO/CreateUser',",
+                                    "     params: {",
+                                    "         username: login,",
+                                    "         password: pass,",
+                                    "         email: email,",
+                                    "         gender: gender,",
+                                    "         age: age,",
+                                    "         occupation: occupation,",
+                                    "         format: 'json',",
+                                    "         response: 'application/jsonp'",
+                                    "             },",
+                                    "     callbackKey: 'callback',",
+                                    "                    success: function (response) {",
+                                    "                        //alert('Working!');",
+                                    "                        console.log(response);",
+                                    "                        if(response['return'] != 'Invalid User'){",
+                                    "                            localStorage.setItem('ifLogged', response['return']);",
+                                    "                            localStorage.setItem('username', login);",
+                                    "                            console.log(localStorage.getItem('prevView'));",
+                                    "                            Ext.Viewport.setActiveItem(localStorage.getItem('prevView'),{",
+                                    "                            type: \"slide\",",
+                                    "                            direction: \"left\"",
+                                    "                        });",
+                                    "                        }",
+                                    "                        else{",
+                                    "                            console.log('the user is invalid');",
+                                    "                            Ext.Msg.alert('Error!', 'Sorry, these user details cannot be used, try again with another details');",
+                                    "//                            alert('Sorry, these user details cannot be used, try again with another details');",
+                                    "                        }",
+                                    "                    },",
+                                    "                    failure: function (response) {",
+                                    "                        alert('Not working!');",
+                                    "                        console.log(response);",
+                                    "                    },",
+                                    "     callback: function(successful, data){",
+                                    "     alert(data);",
+                                    " }",
+                                    "               });"
+                                ]
+                            },
+                            "designerId": "5dfc6c51-70da-4d07-998c-67777b34946b"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
