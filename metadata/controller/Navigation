@@ -1,0 +1,255 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Navigation"
+    },
+    "designerId": "eb587947-19a7-4508-bcdc-f0eceef159b0",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#LogoPanel",
+                "designer|targetType": "LogoPanel",
+                "fn": "onLogoPanelActivate",
+                "implHandler": [
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setActiveItem('ListView',{",
+                    "    type: \"slide\",",
+                    "    direction: \"left\"",
+                    "});}, 2000);",
+                    ""
+                ],
+                "name": "activate"
+            },
+            "designerId": "543c43e8-e428-4a5d-80b1-5e28ebc4c2a4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "listRibbon",
+                "selector": "RibbonMenuPanel#listViewRibbon"
+            },
+            "designerId": "53f81a2d-338a-4aac-bb27-7fa45eec6e12"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#MapViewPanel",
+                "designer|targetType": "MapViewPanel",
+                "fn": "onMapViewPanelActivate",
+                "implHandler": [
+                    "this.getMapRibbon().updateWhenActivated();",
+                    "console.log('in list view');"
+                ],
+                "name": "activate"
+            },
+            "designerId": "24d4dc0a-5990-4dc4-a2cc-633b619f43e7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#SignInUpPanel",
+                "designer|targetType": "SignInUpPanel",
+                "fn": "onSignInUpPanelActivate",
+                "implHandler": [
+                    "this.getSignRibbon().updateWhenActivated();"
+                ],
+                "name": "activate"
+            },
+            "designerId": "ecaed492-edd1-403d-8373-0b8875623144"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mapRibbon",
+                "selector": "RibbonMenuPanel#mapRibbon"
+            },
+            "designerId": "5d440cc2-c9b4-49c2-9209-8d689a30251a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signRibbon",
+                "selector": "RibbonMenuPanel#signRibbon"
+            },
+            "designerId": "2254f57d-1445-4ccd-b968-8b074fc44374"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "emometerRibbon",
+                "selector": "RibbonMenuPanel#emometerRibbon"
+            },
+            "designerId": "5017b054-b85b-4174-b886-697a244d7eb8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "comfortRibbon",
+                "selector": "RibbonMenuPanel#comfortRibbon"
+            },
+            "designerId": "b3577075-9e07-47c9-82a9-79667d38fa4f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#StatisticsTabPanel",
+                "designer|targetType": "StatisticsTabPanel",
+                "fn": "onStatisticsTabPanelActivate",
+                "implHandler": [
+                    "this.getStatisticsRibbon().updateWhenActivated();",
+                    "console.log('stat activated');",
+                    "",
+                    "var pieToHide;",
+                    "var pieToShow;",
+                    "var legendToHide;",
+                    "var legendToShow;",
+                    "console.log(localStorage.getItem('ifLogged'));",
+                    "if(localStorage.getItem('ifLogged')== 'Invalid User' || localStorage.getItem('ifLogged')=== ''|| localStorage.getItem('ifLogged')=== undefined || localStorage.getItem('ifLogged') === null){",
+                    "    console.log(\"anonimous\");",
+                    "    Ext.getCmp('happyPie').hide();",
+                    "    Ext.getCmp('happyLegend').hide();",
+                    "    Ext.getCmp('excitedPie').hide();",
+                    "    Ext.getCmp('excitedLegend').hide();",
+                    "    Ext.getCmp('safePie').hide();",
+                    "    Ext.getCmp('safeLegend').hide();",
+                    "    Ext.getCmp('peacefulPie').hide();",
+                    "    Ext.getCmp('peacefulLegend').hide();",
+                    "}",
+                    "else{",
+                    "    console.log(\"logged in\");",
+                    "    Ext.getCmp('happyPie').show();",
+                    "    Ext.getCmp('happyLegend').show();",
+                    "    Ext.getCmp('excitedPie').show();",
+                    "    Ext.getCmp('excitedLegend').show();",
+                    "    Ext.getCmp('safePie').show();",
+                    "    Ext.getCmp('safeLegend').show();",
+                    "    Ext.getCmp('peacefulPie').show();",
+                    "    Ext.getCmp('peacefulLegend').show();",
+                    "}"
+                ],
+                "name": "activate"
+            },
+            "designerId": "cedd450c-d00b-4d4c-a668-ececdd2126a5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "statisticsRibbon",
+                "selector": "RibbonMenuPanel#statisticsRibbon"
+            },
+            "designerId": "275c20ad-51b1-4ce7-b8e9-3c0a6f2d9d29"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#EmomenterPanel",
+                "designer|targetType": "EmometerPanel",
+                "fn": "onEmomenterPanelActivate",
+                "implHandler": [
+                    "this.getEmometerRibbon().updateWhenActivated();",
+                    "console.log('in emometer');"
+                ],
+                "name": "activate"
+            },
+            "designerId": "46f26763-d6e3-42a7-8d08-2bb2eb32267a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#ComfortPanel",
+                "designer|targetType": "ComfortPanel",
+                "fn": "onComfortPanelActivate",
+                "implHandler": [
+                    "this.getComfortRibbon().updateWhenActivated();"
+                ],
+                "name": "activate"
+            },
+            "designerId": "6093e6d1-88f0-4766-81ae-835fd5f60b99"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#ListView",
+                "designer|targetType": "ListView",
+                "fn": "onListViewActivate",
+                "implHandler": [
+                    "this.getListRibbon().updateWhenActivated();",
+                    "console.log('in list view');"
+                ],
+                "name": "activate"
+            },
+            "designerId": "eff6b107-1739-4258-ac09-c38342cc4f52"
+        }
+    ]
+}

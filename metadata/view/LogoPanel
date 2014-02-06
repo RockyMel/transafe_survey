@@ -1,0 +1,30 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "LogoPanel",
+        "designer|userClassName": "LogoPanel",
+        "id": "LogoPanel"
+    },
+    "designerId": "44d2953d-0be0-45db-b2eb-572e026ed0bf",
+    "cn": [
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 201,
+                "src": "transafe_logo.png"
+            },
+            "designerId": "cb68bec7-a3b5-4a7f-af66-5f0d13fc9e1f"
+        }
+    ]
+}
